@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 780" role="img" aria-labelledby="title description">
+  <title id="title">UrbanGrid Planner architecture</title>
+  <desc id="description">External grid and console inputs enter adapters, which invoke application services around a domain core of plans, cells, policies, and strategies.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F8F5"/>
+      <stop offset="1" stop-color="#EAF2ED"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0L10 5L0 10Z" fill="#177D6C"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#143A31" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="780" rx="32" fill="url(#bg)"/>
+  <text x="72" y="68" fill="#153E35" font-family="Inter, ui-sans-serif, system-ui" font-size="34" font-weight="780">Architecture with deliberate boundaries</text>
+  <text x="72" y="101" fill="#58756C" font-family="Inter, ui-sans-serif, system-ui" font-size="17">External text and console I/O stay outside the planning domain.</text>
+
+  <g font-family="Inter, ui-sans-serif, system-ui">
+    <g transform="translate(72 166)">
+      <text x="0" y="0" fill="#6A837A" font-size="12" font-weight="750" letter-spacing="1.4">EXTERNAL INPUT</text>
+      <rect x="0" y="22" width="220" height="94" rx="18" fill="#FFFFFF" stroke="#C7D7D0" filter="url(#soft)"/>
+      <circle cx="35" cy="69" r="16" fill="#E7F7F0"/>
+      <path d="M27 62H43M27 69H43M27 76H38" stroke="#177D6C" stroke-width="2" stroke-linecap="round"/>
+      <text x="62" y="64" fill="#183B33" font-size="16" font-weight="750">Grid file</text>
+      <text x="62" y="87" fill="#698078" font-size="13">UTF-8 text</text>
+
+      <rect x="0" y="144" width="220" height="94" rx="18" fill="#FFFFFF" stroke="#C7D7D0" filter="url(#soft)"/>
+      <circle cx="35" cy="191" r="16" fill="#FFF3D9"/>
+      <path d="M27 185L33 191L27 197M36 197H44" fill="none" stroke="#9A6A05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="62" y="186" fill="#183B33" font-size="16" font-weight="750">Console input</text>
+      <text x="62" y="209" fill="#698078" font-size="13">Explicit user choices</text>
+    </g>
+
+    <g transform="translate(382 144)">
+      <text x="0" y="0" fill="#6A837A" font-size="12" font-weight="750" letter-spacing="1.4">ADAPTERS</text>
+      <rect x="0" y="22" width="262" height="116" rx="20" fill="#DFF4EA" stroke="#A7D5C4" filter="url(#soft)"/>
+      <text x="24" y="58" fill="#16483D" font-size="18" font-weight="760">GridFileLoader</text>
+      <text x="24" y="83" fill="#4F7166" font-size="13">Grammar · bounds · translation</text>
+      <rect x="24" y="99" width="134" height="23" rx="11.5" fill="#BDE7D6"/>
+      <text x="38" y="115" fill="#176C5D" font-size="11" font-weight="700">ALL-OR-NOTHING</text>
+
+      <rect x="0" y="166" width="262" height="116" rx="20" fill="#FFF4DA" stroke="#E7CD8A" filter="url(#soft)"/>
+      <text x="24" y="202" fill="#5D470F" font-size="18" font-weight="760">ConsoleSession</text>
+      <text x="24" y="227" fill="#7D6B3D" font-size="13">Prompts · selection · output</text>
+      <rect x="24" y="243" width="113" height="23" rx="11.5" fill="#F3DFAC"/>
+      <text x="38" y="259" fill="#7C5B0A" font-size="11" font-weight="700">LINE-BASED</text>
+    </g>
+
+    <g transform="translate(734 144)">
+      <text x="0" y="0" fill="#6A837A" font-size="12" font-weight="750" letter-spacing="1.4">APPLICATION SERVICES</text>
+      <rect x="0" y="22" width="272" height="116" rx="20" fill="#FFFFFF" stroke="#BFCFC8" filter="url(#soft)"/>
+      <text x="24" y="58" fill="#183B33" font-size="18" font-weight="760">CityBuilder</text>
+      <text x="24" y="83" fill="#617970" font-size="13">Propose · evaluate · aggregate</text>
+      <text x="24" y="108" fill="#177D6C" font-size="12" font-weight="700">Cannot bypass cell policy</text>
+
+      <rect x="0" y="166" width="272" height="116" rx="20" fill="#FFFFFF" stroke="#BFCFC8" filter="url(#soft)"/>
+      <text x="24" y="202" fill="#183B33" font-size="18" font-weight="760">GridRenderer</text>
+      <text x="24" y="227" fill="#617970" font-size="13">Pure string presentation</text>
+      <text x="24" y="252" fill="#177D6C" font-size="12" font-weight="700">Deterministic and testable</text>
+    </g>
+
+    <g transform="translate(1096 144)">
+      <text x="0" y="0" fill="#6A837A" font-size="12" font-weight="750" letter-spacing="1.4">DOMAIN CORE</text>
+      <rect x="0" y="22" width="272" height="260" rx="24" fill="#103E35" filter="url(#soft)"/>
+      <text x="24" y="61" fill="#F4FAF7" font-size="20" font-weight="780">City model</text>
+      <text x="24" y="90" fill="#A9CEC0" font-size="13">CityGrid · Cell · BuildingPlan</text>
+      <line x1="24" y1="111" x2="248" y2="111" stroke="#34665B"/>
+      <text x="24" y="143" fill="#D9F27C" font-size="13" font-weight="740">ZONING POLICY</text>
+      <text x="24" y="168" fill="#C8DED6" font-size="13">Decorator composition</text>
+      <text x="24" y="201" fill="#76E0B5" font-size="13" font-weight="740">BUILD POLICY</text>
+      <text x="24" y="226" fill="#C8DED6" font-size="13">Strategy interchangeability</text>
+      <text x="24" y="256" fill="#8FB6A8" font-size="12">Immutable result boundaries</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#177D6C" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M292 235H364"/>
+    <path d="M292 357H364"/>
+    <path d="M644 224H716"/>
+    <path d="M644 368H716"/>
+    <path d="M1006 224H1078"/>
+    <path d="M1006 368H1042V315H1078"/>
+  </g>
+
+  <g transform="translate(72 506)" font-family="Inter, ui-sans-serif, system-ui">
+    <rect width="1296" height="192" rx="24" fill="#FFFFFF" stroke="#C7D7D0" filter="url(#soft)"/>
+    <text x="28" y="41" fill="#183B33" font-size="16" font-weight="760">One plan, one controlled decision path</text>
+    <g transform="translate(28 76)">
+      <rect width="202" height="72" rx="16" fill="#E8F6F0"/>
+      <text x="18" y="29" fill="#177D6C" font-size="11" font-weight="750" letter-spacing="1.1">1 · PROPOSE</text>
+      <text x="18" y="52" fill="#284B42" font-size="13">Strategy creates a plan</text>
+
+      <rect x="258" width="202" height="72" rx="16" fill="#E8F6F0"/>
+      <text x="276" y="29" fill="#177D6C" font-size="11" font-weight="750" letter-spacing="1.1">2 · EVALUATE</text>
+      <text x="276" y="52" fill="#284B42" font-size="13">Terrain + zoning decide</text>
+
+      <rect x="516" width="202" height="72" rx="16" fill="#E8F6F0"/>
+      <text x="534" y="29" fill="#177D6C" font-size="11" font-weight="750" letter-spacing="1.1">3 · ESTIMATE</text>
+      <text x="534" y="52" fill="#284B42" font-size="13">Costs compose once valid</text>
+
+      <rect x="774" width="202" height="72" rx="16" fill="#E8F6F0"/>
+      <text x="792" y="29" fill="#177D6C" font-size="11" font-weight="750" letter-spacing="1.1">4 · RECORD</text>
+      <text x="792" y="52" fill="#284B42" font-size="13">Immutable placement added</text>
+
+      <rect x="1032" width="208" height="72" rx="16" fill="#103E35"/>
+      <text x="1050" y="29" fill="#D9F27C" font-size="11" font-weight="750" letter-spacing="1.1">5 · RENDER</text>
+      <text x="1050" y="52" fill="#EAF5F0" font-size="13">Stable city result</text>
+
+      <g fill="none" stroke="#6CA996" stroke-width="2" marker-end="url(#arrow)">
+        <path d="M214 36H244"/>
+        <path d="M472 36H502"/>
+        <path d="M730 36H760"/>
+        <path d="M988 36H1018"/>
+      </g>
+    </g>
+  </g>
+
+  <text x="720" y="742" text-anchor="middle" fill="#698078" font-family="Inter, ui-sans-serif, system-ui" font-size="13">No network · no persistence · no hidden global state</text>
+</svg>
