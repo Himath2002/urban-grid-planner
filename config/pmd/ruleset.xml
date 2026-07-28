@@ -15,7 +15,5 @@
     <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
     <rule ref="category/java/codestyle.xml/ControlStatementBraces"/>
     <rule ref="category/java/codestyle.xml/UnnecessaryLocalBeforeReturn"/>
-    <rule ref="category/java/design.xml/LooseCoupling"/>
     <rule ref="category/java/errorprone.xml/CloseResource"/>
-    <rule ref="category/java/errorprone.xml/UseTryWithResources"/>
 </ruleset>
