@@ -143,9 +143,9 @@ public final class ConsoleSession {
 
     private void configureBuildMode() {
         output.println("\n=== Build mode ===");
-        output.println("1. Uniform — one plan for every cell");
-        output.println("2. Random — independently generated plans");
-        output.println("3. Central — taller, stronger structures near the centre");
+        output.println("1. Uniform - one plan for every cell");
+        output.println("2. Random - independently generated plans");
+        output.println("3. Central - taller, stronger structures near the centre");
 
         buildMode = switch (readIntInRange("Select a mode (1-3): ", 1, 3)) {
             case 1 -> BuildMode.UNIFORM;
@@ -159,7 +159,7 @@ public final class ConsoleSession {
     private BuildingPlan readBuildingPlan() {
         int floors = readIntInRange("Floors (1-1,000): ", 1, 1_000);
         FoundationType foundation = switch (readIntInRange(
-                "Foundation — 1. slab, 2. stilts: ",
+                "Foundation - 1. slab, 2. stilts: ",
                 1,
                 2)) {
             case 1 -> FoundationType.SLAB;
@@ -167,7 +167,7 @@ public final class ConsoleSession {
             default -> throw new IllegalStateException("Unreachable foundation selection");
         };
         MaterialType material = switch (readIntInRange(
-                "Material — 1. wood, 2. stone, 3. brick, 4. concrete: ",
+                "Material - 1. wood, 2. stone, 3. brick, 4. concrete: ",
                 1,
                 4)) {
             case 1 -> MaterialType.WOOD;

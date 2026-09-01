@@ -18,7 +18,7 @@ public record BuildPlacement(int row, int column, BuildingPlan plan, double cost
     public String toString() {
         return String.format(
                 Locale.ROOT,
-                "row %d, column %d — %d floors, %s, %s ($%,.2f)",
+                "row %d, column %d - %d floors, %s, %s ($%,.2f)",
                 row + 1,
                 column + 1,
                 plan.floors(),

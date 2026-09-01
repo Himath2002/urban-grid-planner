@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/hero.svg" alt="UrbanGrid Planner — terrain-aware city planning visualised as a structured grid" width="100%">
+  <img src="docs/hero.svg" alt="UrbanGrid Planner - terrain-aware city planning visualised as a structured grid" width="100%">
 </p>
 
 <h1 align="center">UrbanGrid Planner</h1>
@@ -19,7 +19,7 @@
 
 UrbanGrid Planner turns a compact text file into a validated city model. Each parcel carries a terrain type and any number of composable zoning rules. You can inspect a proposed structure or let one of three planning strategies simulate an entire city.
 
-The interesting part is not the menu—it is the model behind it:
+The interesting part is not the menu-it is the model behind it:
 
 - terrain determines physical feasibility and site preparation cost;
 - zoning rules compose at runtime through the Decorator pattern;
@@ -43,7 +43,7 @@ The interesting part is not the menu—it is the model behind it:
 ### Requirements
 
 - JDK 21
-- No global Gradle installation—the repository includes the Gradle Wrapper
+- No global Gradle installation-the repository includes the Gradle Wrapper
 
 ### Run the sample city
 
@@ -123,7 +123,7 @@ Given a structure proposal, a cell performs the same ordered decision flow every
 3. calculate material cost per floor;
 4. add swamp or rocky-site preparation cost;
 5. apply all zoning cost multipliers;
-6. return an immutable estimate—or the complete rejection reasons.
+6. return an immutable estimate-or the complete rejection reasons.
 
 For example, a three-floor brick structure on contaminated swampy land with stilts costs:
 
@@ -181,7 +181,7 @@ The centre receives taller concrete structures; progressively distant parcels mo
 - Java 21 toolchain and Gradle Wrapper for repeatable builds
 - compiler linting with warnings promoted to failures
 - focused JUnit tests for parsing, cost logic, zoning composition, strategies, orchestration, and rendering
-- PMD rules selected for correctness and maintainability—not course-specific scoring
+- PMD rules selected for correctness and maintainability-not course-specific scoring
 - GitHub Actions CI with wrapper validation and read-only permissions
 - Dependabot coverage for Gradle and GitHub Actions
 - no network calls, credentials, database, analytics, or user-data collection
